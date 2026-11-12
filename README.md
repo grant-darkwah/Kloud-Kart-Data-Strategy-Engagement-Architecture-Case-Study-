@@ -1,4 +1,4 @@
-# Kloud Kart — Data Strategy & Architecture Engagement
+# Kloud Kart - Data Strategy & Architecture Engagement
 
 **Client:** Kloud Kart  
 **Industry:** E-Commerce  
@@ -22,7 +22,7 @@ The engagement identified three critical areas requiring immediate attention:
 
 3. **Data Protection and Regulatory Compliance Exposure:** Unencrypted customer data exports distributed across employee devices and email communications create significant privacy and security risks. These practices introduce potential exposure under Ghana's Data Protection Act, 2012 (Act 843), alongside an active 90-day Data Protection Commission (DPC) data-erasure inquiry.
 
-### Engagement Objective
+## 2. Engagement Objective
 
 This repository contains the technical and strategic deliverables developed to address these challenges.
 
@@ -38,7 +38,7 @@ The overarching objective is to establish a secure, reliable, and scalable data 
 
 ---
 
-## 2. Engagement Deliverables
+## 3. Engagement Deliverables
 
 The engagement is organized into five primary deliverable categories.
 
@@ -52,7 +52,7 @@ The engagement is organized into five primary deliverable categories.
 
 ---
 
-## 3. Repository Structure
+## 4. Repository Structure
 
 The repository is organized to provide a clear separation between strategic assessment, architectural recommendations, implementation planning, technical decisions, and executive communication.
 
@@ -80,7 +80,7 @@ kloud-kart-data-strategy/
 
 ---
 
-## 4. Strategic Priorities
+## 5. Strategic Priorities
 
 The proposed engagement addresses four overarching business and technical priorities:
 
