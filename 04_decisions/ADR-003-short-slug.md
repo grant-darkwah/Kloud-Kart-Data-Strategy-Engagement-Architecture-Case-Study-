@@ -1,0 +1,45 @@
+
+# ADR-003: Put customer details behind one logged door, with names hidden by default
+
+- **Status:** Accepted
+- **Date:** 2026-11-12
+- **Decision owner:** Grant Sarfo Darkwah
+
+## Context
+
+Marketing's customer list holds about 300,000 people and is exported with no count of how many copies exist. Operations and Finance download Monday files that carry customer details too. Deleting a customer in the shop does nothing to those copies, and that gap is the root of the Data Protection Commission complaint. The plan has to be defensible under Ghana's Data Protection Act, 2012 (Act 843). I am relying on my own reading of it, and a lawyer must confirm it. Nigeria's pilot adds a second country's customers and rules. Marketing and delivery genuinely need customer lists to do their jobs. Nana is unavailable, so I decided.
+
+## Decision
+
+Customer details leave the reporting database only through one logged route: a named person, a reason, and a date. Reports show customer codes, not names or phone numbers, unless a reason is given. Every pull carries a delete-by date. Marketing's list comes from this route and nowhere else.
+
+## Alternatives considered
+
+### Alternative A: A written policy only
+
+- **How it would work:** Tell staff to delete files after use and not to email customer lists.
+- **Why it is attractive:** It is free, it can start tomorrow, it needs no engineering, and everyone understands it.
+- **Why rejected:** With no log we cannot count copies or prove deletion, and a rule nobody can check does not answer the Commission inside 90 days. A 300,000-person list already shows that copies are uncontrolled today.
+
+### Alternative B: Ban all exports of customer details
+
+- **How it would work:** No customer file leaves the system. Marketing and delivery work only inside tools.
+- **Why it is attractive:** It removes the copies at the root, gives the strongest legal position, and is a simple message.
+- **Why rejected:** Marketing needs lists to send messages and delivery needs addresses, and there are no tools to work inside yet. A ban would push people to screenshots and copy-and-paste with no log, which is worse than exports we can see.
+
+## Consequences
+
+- **What this buys:** Copies we can count, a basis for proving deletion, and a design that Nigerian customers can be added to once a lawyer confirms the rules.
+- **What this costs:** A log line for every pull, which will annoy staff. The analyst has to run the log. It does not apply to Marketing until Friday 30 April 2027, so a gap remains until then.
+- **What it costs the client if I am wrong:** If staff route around the door, shadow copies come back and Kloud Kart faces a repeat of today's complaint. I have not priced the fines and legal costs because I cannot verify them, so a lawyer should give a range.
+- **What would make me revisit this:** A spot check finds files outside the log, a lawyer says encryption or other measures are needed, or Marketing's workflow cannot work through one door.
+
+## What this survives
+
+- **Nigeria:** The same door applies. A lawyer's written confirmation is needed by Friday 28 May 2027, before any Nigerian customer's details are collected.
+- **Growth:** A list of 300,000 growing 15 to 20 percent a year is a bigger log, not a different design.
+- **A second deletion request:** The log and delete-by dates make repeat requests a lookup instead of a search.
+- **Does not survive:** Someone photographing a screen or typing details into a personal phone. No tool stops that, so it rests on staff rules and spot checks.
+
+
+

@@ -1,0 +1,42 @@
+
+
+# ADR-002: Refresh reports once a day, keep stock live in the shop, and build no live data stream
+
+- **Status:** Accepted
+- **Date:** 2026-11-12
+- **Decision owner:** Grant Sarfo Darkwah
+
+## Context
+
+The brief says stock counts cannot go stale, because that is how Kloud Kart oversells, and that everything else can refresh daily. Investors asked about "real-time analytics" and a board member saw a live dashboard at another company. I do not know where the out-of-date stock count lives: it may be in the shop, or in a spreadsheet someone uses to restock or promise items. The shop takes about 4,000 orders a day and the team is one developer plus two hires, so anything that must run around the clock has a real cost. Nana is unavailable, so I decided.
+
+## Decision
+
+Every report refreshes nightly (cut off at midnight, ready by 7 a.m.). The shop's own live stock count alone decides whether an item can be sold. One live screen, "orders so far today" and "items low on stock", reads from the live copy of the shop. No live data stream is built.
+
+## Alternatives considered
+
+### Alternative A: Real-time dashboards through a live data stream
+
+- **How it would work:** Send every order and stock change into a streaming tool that updates screens within seconds.
+- **Why it is attractive:** It matches what the board member saw, it answers the investors' words directly, and nobody waits until Monday.
+- **Why rejected:** Nothing in the brief needs minute-by-minute numbers except stock, and stock is live in the shop already. A stream needs a new tool and someone to keep it running around the clock, on a team of one developer plus two hires.
+
+### Alternative B: Refresh reports every hour
+
+- **How it would work:** Rebuild the reporting database 24 times a day instead of once.
+- **Why it is attractive:** It is a small step up from daily, it gives within-the-day numbers, and it costs little extra.
+- **Why rejected:** The brief says only stock needs freshness. Hourly rebuilds would put reading load on the reporting server through the working day and give Operations and Finance a moving target. A report pulled 15 minutes apart already shows different numbers, which is one cause of the Monday disagreement. One fixed midnight cut-off removes that.
+
+## Consequences
+
+- **What this buys:** One stable snapshot everyone agrees on, low running cost, and an answer for the board: one live screen without building streaming.
+- **What this costs:** Reports can be up to a day old. The word "real-time" will draw questions from investors, so the answer has to be ready: stock is live, reports are daily, and a screen shows today's orders.
+- **What it costs the client if I am wrong:** If a named decision needs fresher data, we add a live feed for that one report. My estimate is weeks of engineer time, not a rebuild, because the live copy is only seconds behind the shop.
+- **What would make me revisit this:** A named decision that would change with a fresher number, Nigerian orders shipping from shared Accra stock so that stock needs an intraday view, or a second warehouse.
+
+## What this survives
+
+- **Orders triple to about 12,000 a day:** Live stock stays in the shop, which reports never touch. The nightly snapshot takes longer but the 7 a.m. deadline is monitored.
+- **Board pressure for real-time:** The live screen answers it. If the board wants more, each extra live number needs a named decision behind it.
+- **Does not survive:** If the stale stock count turns out to live in a spreadsheet outside the shop, this decision does not fix overselling by itself. The Friday 11 December test (order a one-left item twice) finds that out. It also assumes stock sits in one place: a separate Lagos warehouse would need this revisited.
