@@ -11,11 +11,11 @@ A diagnosis, recommendation and 12-month roadmap for fixing Kloud Kart's data pr
 
 ## Summary
 
-<<<<<<< HEAD
+
 Kloud Kart is an online shop in Ghana handling about 4,000 orders a day, with 40 GB of data, one developer and two approved data hires. It has four problems:
-=======
+
 Kloud Kart is an online shop in Ghana handling about 4,000 orders a day, with 40 GB of data, one developer and two approved data hires. It has four problems ranked by risks:
->>>>>>> e49bb7f7a65a521c9e21180bbf778e77813e7284
+
 
 1. **Customer details are copied out of the shop and nobody counts the copies.** This matters most because of a live Data Protection Commission complaint.
 2. **The shop and the reports share one machine.** Monday downloads slowed the shop twice last month.
